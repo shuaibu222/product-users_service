@@ -10,7 +10,7 @@ jobs:
               uses: actions/checkout@v3
             - name: build
               run: |
-                docker build . -t shuaibu12345/users:latest
+                docker build -f users.dockerfile -t shuaibu12345/users:latest
             - name: publish
               run: |
                 docker login -u shuaibu12345 -p ${{ secrets.DOCKER_HUB_TOKEN }}
