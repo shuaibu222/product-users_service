@@ -12,7 +12,7 @@ import (
 
 // here should be the grpc handlers
 type UsersServer struct {
-	users.UnimplementedUsersServiceServer
+	users.UsersServiceServer
 }
 
 func (u *UsersServer) CreateUser(ctx context.Context, req *users.UserRequest) (*users.UserResponse, error) {
@@ -43,6 +43,9 @@ func (u *UsersServer) CreateUser(ctx context.Context, req *users.UserRequest) (*
 	if err != nil {
 		return nil, err
 	}
+
+	app := Config{}
+	app.SendUserToRabbitmq(entry)
 
 	insertedUser := &users.User{
 		Id:       userEntry.ID.Hex(),

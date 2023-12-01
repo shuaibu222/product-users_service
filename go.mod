@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/go-chi/chi v1.5.5
 	github.com/go-chi/cors v1.2.1
-	github.com/golang-jwt/jwt/v5 v5.0.0
+	github.com/rabbitmq/amqp091-go v1.9.0
 	go.mongodb.org/mongo-driver v1.12.1
 	golang.org/x/crypto v0.13.0
 	google.golang.org/grpc v1.58.3
